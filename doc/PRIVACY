@@ -1,0 +1,28 @@
+Privacy Policy (April 10, 2021)
+TankAssist requests the following permissions:
+* Full network access: Request current filling stations prices form Tankerkönig-API by sending
+longitude and latitude coordinates. Longitude and latitude coordinates are determined by the
+operating system Geocoding API when manually entering a location or by using device location
+services. In addition, TankAssists sends filter parameters set by the user in app settings to the
+Tankerkönig API.
+* Location: To determine current longitude and latitude coordinates. This data is sent to the
+Tankerkönig-API to request nearby filling stations prices.
+
+TankAssist does not collect or process data for other purposes than those stated in this document.
+
+For privacy policy of the Tankerkönig-API see https://creativecommons.tankerkoenig.de/.
+
+
+Datenschutzbestimmungen (10.04.2021)
+TankAssist fordert die folgenden Berechtigungen an:
+* Zugriff auf alle Netzwerke: Abfrage der Tankerkönig-API nach aktuellen Tankstellen-Preisen. An die
+API werden Längen- und Breitengrad übertragen. Längen- und Breitengrad werden entweder über die
+Geocoding-API des Betriebssystems bei manueller Angabe eines Orts ermittelt oder durch die Nutzung
+der Standort-Dienste. Darüberhinaus sendet TankAssist Filterparameter, welche der Nutzer in den
+Einstellungen festlegen kann, an die Tankerkönig-API.
+* Standort: Ermittlung des aktuellen Längern- und Breitengrads des Geräts. Diese Daten werden an die
+Tankerkönig-API gesendet, um Tankstellen-Preise in der Umgebung zu ermitteln.
+
+TankAssist erfasst, verarbeitet oder sammelt Daten nicht für andere als hier angegebene Zwecke.
+
+Für Datenschutzbestimmungen der Tankerkönig-API siehe https://creativecommons.tankerkoenig.de/.
