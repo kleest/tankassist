@@ -1,0 +1,21 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory app:title="@string/pref_cat_search">
+        <SwitchPreferenceCompat
+            app:key="@string/pref_requestCurrentLocationOnResume"
+            app:defaultValue="false"
+            app:summaryOff="@string/pref_requestCurrentLocationOnResume_summary_off"
+            app:summaryOn="@string/pref_requestCurrentLocationOnResume_summary_on"
+            app:title="@string/pref_requestCurrentLocationOnResume_title" />
+        <SeekBarPreference
+            app:key="@string/pref_searchRadius"
+            app:defaultValue="10"
+            app:showSeekBarValue="true"
+            app:min="1"
+            android:max="50"
+            app:title="@string/pref_searchRadius_title"
+            app:summary="@string/pref_searchRadius_summary"
+            />
+    </PreferenceCategory>
+</PreferenceScreen>

@@ -1,0 +1,63 @@
+<resources>
+    <string name="app_name">Tank Assist</string>
+    <!-- Preference Titles -->
+
+    <!-- Messages Preferences -->
+
+    <!-- Sync Preferences -->
+    <string name="title_activity_settings">Settings</string>
+    <string name="description_location">My location</string>
+    <string name="station_none">No station found</string>
+    <string name="dialog_perm_location_title" translatable="false">@string/intro_location_title</string>
+    <string name="dialog_perm_location_message" translatable="false">@string/intro_location_description</string>
+    <string name="dialog_perm_location_btn_negative">Decline</string>
+    <string name="dialog_perm_location_btn_positive">Agree</string>
+    <string name="dialog_result_location_title">Location access denied</string>
+    <string name="dialog_result_location_message">Without location access, TankAssist cannot show nearby filling stations.</string>
+    <string name="dialog_result_location_btn_ok">OK</string>
+    <string name="dialog_result_location_avail_title">Location services not available</string>
+    <string name="dialog_result_location_avail_message">There was an error determining the device\'s location.</string>
+    <string name="dialog_result_location_avail_btn_ok">OK</string>
+    <string name="toast_location_failed">Acquiring location failed</string>
+    <string name="toast_network_error">Network error</string>
+    <string name="address_full">%1$s %2$s, %3$d %4$s</string>
+    <string name="distance">%1$.2f km</string>
+    <string name="search_placeholder">Search for filling stations…</string>
+    <string name="item_settings">Settings</string>
+    <string name="item_about">About</string>
+    <string name="about_version" translatable="false">Version: %s</string>
+    <string name="about_copyright">Copyright 2021 Steffen Klee.\nReleased under GNU General Public License version 3.</string>
+    <string name="about_licenses">Open Source licenses</string>
+    <string name="title_activity_intro">Introduction</string>
+    <string name="intro_welcome_title">Find nearby filling stations</string>
+    <string name="intro_welcome_description">With TankAssist you can easily find prices of filling stations in a fast and concise way!</string>
+    <string name="intro_location_title">Location features</string>
+    <string name="intro_location_description">TankAssist can determine your current location to show you nearby filling stations without entering a location manually. You can further allow TankAssist to query nearby filling stations automatically every time you open the app. To use location features you have to allow TankAssist to access your location. These features are optional.</string>
+    <string name="intro_tos_title">Terms of use</string>
+    <string name="intro_tos_description">To continue you have to accept TankAssist\'s license and privacy policy.</string>
+    <string name="intro_tos_license">I accept the license.</string>
+    <string name="intro_tos_privacy">I accept the privacy policy.</string>
+    <string name="dialog_ok">OK</string>
+    <string name="intro_finish_title">All set!</string>
+    <string name="intro_finish_description">That\'s all for now. Enjoy the app!</string>
+    <string name="pref_requestCurrentLocationOnResume_summary_off">Nearby filling stations only shown when pressing button</string>
+    <string name="pref_requestCurrentLocationOnResume_summary_on">Nearby filling stations shown automatically when starting app</string>
+    <string name="pref_requestCurrentLocationOnResume_title">Nearby stations on app start</string>
+    <string name="pref_cat_search">Search</string>
+
+    <string name="about_page_description" translatable="false">@string/intro_welcome_description</string>
+    <string name="about_tankerkoenig">Price data CC BY 4.0 Tankerkönig API</string>
+    <string name="intro_tos_btn_license">License</string>
+    <string name="intro_tos_btn_privacy">Privacy Policy</string>
+    <string name="intro_location_activate">Enable location features</string>
+    <string name="intro_location_activate_onresume">Query nearby filling stations automatically</string>
+    <string name="toast_geocoder_missing">Geocoder API missing: Cannot resolve address.</string>
+    <string name="progress_location">Determining location…</string>
+    <string name="item_sort_price_diesel">Diesel</string>
+    <string name="item_sort_distance">Distance</string>
+    <string name="item_sort_price_e5">E5</string>
+    <string name="item_sort_price_e10">E10</string>
+    <string name="item_sort">Sort</string>
+    <string name="pref_searchRadius_title">Search radius in km</string>
+    <string name="pref_searchRadius_summary">Only list stations within a radius of up to the specified kilometers</string>
+</resources>

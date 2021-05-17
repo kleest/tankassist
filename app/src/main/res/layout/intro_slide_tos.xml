@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ MIT License
+  ~
+  ~ Copyright (c) 2017 Jan Heinrich Reimer
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~ of this software and associated documentation files (the "Software"), to deal
+  ~ in the Software without restriction, including without limitation the rights
+  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is
+  ~ furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all
+  ~ copies or substantial portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  ~ SOFTWARE.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:fitsSystemWindows="false"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="@dimen/mi_baseline">
+
+    <ImageView
+        android:id="@id/mi_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/mi_baseline"
+        android:adjustViewBounds="true"
+        android:gravity="center"
+        tools:ignore="ContentDescription"
+        tools:src="@android:drawable/sym_action_call" />
+
+    <TextView
+        android:id="@id/mi_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mi_baseline"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:text="@string/app_name"
+        tools:ignore="UnusedAttribute"
+        tools:text="Lorem ipsum" />
+
+    <TextView
+        android:id="@id/mi_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mi_baseline"
+        android:autoLink="web"
+        android:gravity="center"
+        android:lineSpacingMultiplier="1.25"
+        android:linksClickable="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+        android:text="@string/intro_welcome_description"
+        tools:text="Lorem ipsum dolor sit amet, consectetur, adipisci velit, …" />
+
+    <TextView
+        android:id="@+id/mi_description2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mi_baseline"
+        android:autoLink="web"
+        android:gravity="center"
+        android:lineSpacingMultiplier="1.25"
+        android:linksClickable="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+        android:text="@string/intro_tos_description"
+        tools:text="Lorem ipsum dolor sit amet, consectetur, adipisci velit, …" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:showDividers="middle"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/default_margin"
+        >
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_license"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/intro_tos_btn_license"
+            style="?attr/materialButtonOutlinedStyle"
+            />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_privacy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/intro_tos_btn_privacy"
+            style="?attr/materialButtonOutlinedStyle"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/check_license"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="@dimen/default_margin"
+            android:text="@string/intro_tos_license" />
+
+        <com.google.android.material.checkbox.MaterialCheckBox
+            android:id="@+id/check_privacy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="@dimen/default_margin"
+            android:text="@string/intro_tos_privacy" />
+
+    </LinearLayout>
+
+</LinearLayout>

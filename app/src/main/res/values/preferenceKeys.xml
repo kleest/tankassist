@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pref_requestCurrentLocationOnResume" translatable="false">requestCurrentLocationOnResume</string>
+    <string name="pref_searchRadius" translatable="false">searchRadius</string>
+    <string name="pref_firstRun" translatable="false">firstRun</string>
+</resources>

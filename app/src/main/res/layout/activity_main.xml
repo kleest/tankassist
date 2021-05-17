@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/app_bar"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="@string/app_name" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        >
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/search_container"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_margin"
+            android:layout_marginEnd="@dimen/default_margin"
+            android:layout_marginTop="@dimen/default_margin"
+            android:layout_marginBottom="@dimen/gutter"
+            android:hint="@string/search_placeholder"
+            app:endIconMode="clear_text"
+            app:layout_constraintBottom_toTopOf="@id/current_location"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:startIconContentDescription="@string/description_location"
+            app:startIconDrawable="@drawable/ic_baseline_my_location_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/search"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints="postalAddress"
+                android:imeOptions="actionSearch"
+                android:inputType="textPostalAddress"
+                android:importantForAutofill="no"
+                android:textSize="25sp"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/current_location"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginBottom="@dimen/gutter"
+            android:text=""
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+            app:layout_constraintBottom_toTopOf="@+id/swipe_refresh"
+            app:layout_constraintEnd_toStartOf="@+id/progress_updating"
+            app:layout_constraintStart_toStartOf="@+id/search_container"
+            app:layout_constraintTop_toBottomOf="@+id/search_container" />
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/progress_updating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginBottom="@dimen/gutter"
+            android:indeterminate="true"
+            android:contentDescription="@string/progress_location"
+            android:visibility="invisible"
+            app:indicatorSize="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/swipe_refresh"
+            app:layout_constraintEnd_toEndOf="@+id/search_container"
+            app:layout_constraintStart_toEndOf="@+id/current_location"
+            app:layout_constraintTop_toBottomOf="@+id/search_container"
+            />
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/default_margin"
+            android:layout_marginEnd="@dimen/default_margin"
+            android:layout_marginBottom="@dimen/gutter"
+
+            app:layout_constraintBottom_toTopOf="@+id/last_update"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/progress_updating"
+            >
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/stations"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="vertical"
+                 />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/last_update"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginBottom="@dimen/default_margin"
+            android:text=""
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+            android:textAlignment="textEnd"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="@+id/swipe_refresh"
+            app:layout_constraintStart_toStartOf="@+id/swipe_refresh"
+            app:layout_constraintTop_toBottomOf="@+id/swipe_refresh"
+            app:layout_constraintBottom_toBottomOf="parent"
+        />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

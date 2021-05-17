@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/sort"
+        android:icon="@drawable/ic_baseline_sort_24"
+        android:title="@string/item_sort"
+        app:showAsAction="always">
+        <menu>
+            <item
+                android:id="@+id/distance"
+                android:icon="@drawable/ic_baseline_distance_24"
+                android:checkable="true"
+                android:title="@string/item_sort_distance" />
+
+            <item
+                android:id="@+id/price_diesel"
+                android:icon="@drawable/ic_baseline_euro_symbol_24"
+                android:checkable="true"
+                android:title="@string/item_sort_price_diesel" />
+
+            <item
+                android:id="@+id/price_e5"
+                android:icon="@drawable/ic_baseline_euro_symbol_24"
+                android:checkable="true"
+                android:title="@string/item_sort_price_e5" />
+
+            <item
+                android:id="@+id/price_e10"
+                android:icon="@drawable/ic_baseline_euro_symbol_24"
+                android:checkable="true"
+                android:title="@string/item_sort_price_e10" />
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/settings"
+        android:icon="@drawable/ic_baseline_settings_24"
+        android:title="@string/item_settings"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/about"
+        android:icon="@drawable/ic_baseline_info_24"
+        android:title="@string/item_about"
+        app:showAsAction="ifRoom" />
+</menu>

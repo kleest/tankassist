@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="red_900_normal">#FFf05545</color>
+    <color name="red_900">#FFB71C1C</color>
+    <color name="red_900_dark">#FF7f0000</color>
+    <color name="green_700">#388E3C</color>
+    <color name="green_700_dark">#00600f</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- intro -->
+    <color name="intro_tos_night">#FF7f0000</color>
+    <color name="intro_tos_night_dark">#ff280606</color>
+    <color name="intro_tos">#FFCDD2</color>
+    <color name="intro_tos_dark">#FF7f0000</color>
+
+    <!-- fix broken about page colors -->
+    <color name="about_background_color">@color/white</color>
+    <color name="about_background_dark_color">#121212</color>
+    <color name="about_description_text_color">@color/black</color>
+    <color name="about_description_dark_text_color">@color/white</color>
+    <color name="about_facebook_color">#3b5998</color>
+    <color name="about_github_color">#666666</color>
+    <color name="about_instagram_color">#3f729b</color>
+    <color name="about_item_dark_text_color">@color/white</color>
+    <color name="about_item_icon_color">#666666</color>
+    <color name="about_item_text_color">@color/black</color>
+    <color name="about_play_store_color">#689F38</color>
+    <color name="about_separator_color">#e1e1e1</color>
+    <color name="about_separator_dark_color">#494949</color>
+    <color name="about_text_color">@color/black</color>
+    <color name="about_text_dark_color">@color/white</color>
+    <color name="about_twitter_color">#55acee</color>
+    <color name="about_youtube_color">#cd201f</color>
+</resources>

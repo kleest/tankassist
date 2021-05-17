@@ -1,0 +1,34 @@
+<?xml version ="1.0" encoding ="utf-8"?><!--  Learn More about how to use App Actions: https://developer.android.com/guide/actions/index.html -->
+<actions>
+    <action intentName="actions.intent.GET_LOCAL_BUSINESS">
+        <fulfillment urlTemplate="tankassist://find{?desc,locationName,locationAddress,locationLat,locationLng}">
+            <parameter-mapping
+                intentParameter="localBusiness.disambiguatingDescription"
+                urlParameter="desc" />
+            <parameter-mapping
+                intentParameter="localBusiness.location.name"
+                urlParameter="locationName" />
+            <parameter-mapping
+                intentParameter="localBusiness.location.address"
+                urlParameter="locationAddress" />
+            <parameter-mapping
+                intentParameter="localBusiness.location.geo.latitude"
+                urlParameter="locationLat" />
+            <parameter-mapping
+                intentParameter="localBusiness.location.geo.longitude"
+                urlParameter="locationLng" />
+        </fulfillment>
+    </action>
+
+    <!--    Example Action -->
+    <!--    <action intentName="Intent name (actions.intent.*)"> -->
+    <!--        <action-display -->
+    <!--            icon="@mipmap/..." -->
+    <!--            labelTemplate="@array/..." /> -->
+    <!--        <fulfillment urlTemplate="Action content URI or URL"> -->
+    <!--            <parameter-mapping -->
+    <!--                intentParameter="Parameter name in Intent URI" -->
+    <!--                urlParameter="Parameter name in URL" /> -->
+    <!--        </fulfillment> -->
+    <!--    </action> -->
+</actions>
