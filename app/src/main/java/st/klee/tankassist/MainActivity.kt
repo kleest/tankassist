@@ -51,7 +51,7 @@ import java.lang.Integer.max
 import java.text.DateFormat
 import java.util.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener {
     private var queue: RequestQueue? = null
     private val stationList: MutableList<Station> = mutableListOf()
     protected var currentLoc: LatLng? = null
@@ -124,10 +124,7 @@ class MainActivity : AppCompatActivity() {
         }
         // swipe-to-refresh
         swipeToRefresh = findViewById(R.id.swipe_refresh)
-        swipeToRefresh!!.setOnRefreshListener {
-            if (searchText.isNotBlank())
-                requestStationList(GeocodingUtil.latLngForAddress(searchText))
-        }
+        swipeToRefresh!!.setOnRefreshListener(this)
 
         // other UI references
         currentLocView = findViewById(R.id.current_location)
@@ -197,6 +194,13 @@ class MainActivity : AppCompatActivity() {
         if (menu != null)
             updateSortView(menu)
         return true
+    }
+
+    override fun onRefresh() {
+        if (searchText.isNotBlank())
+            requestStationList(GeocodingUtil.latLngForAddress(searchText))
+        else
+            requestStationListForCurrentLocation(true)
     }
 
     private fun hideKeyboard(view: View) {
@@ -331,6 +335,7 @@ class MainActivity : AppCompatActivity() {
                 fusedLocationClient.locationAvailability.addOnSuccessListener { locationAvailability ->
                     if (locationAvailability == null || !locationAvailability.isLocationAvailable) {
                         // dialog about INFO that location services are not available
+                        setProgressIndicator(false)
                         MaterialAlertDialogBuilder(this)
                             .setTitle(getString(R.string.dialog_result_location_avail_title))
                             .setMessage(getString(R.string.dialog_result_location_avail_message))
@@ -385,6 +390,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
         } else if (!ignoreIfNotPermitted) {
+            setProgressIndicator(false)
             if (shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_FINE_LOCATION)) {
                 // dialog about WHY we request location permissions
                 Permissions.requestLocationPermission(this, requestPermissionLauncher)
@@ -392,6 +398,8 @@ class MainActivity : AppCompatActivity() {
                 // request permission
                 requestPermissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
             }
+        } else {
+            setProgressIndicator(false)
         }
     }
 
