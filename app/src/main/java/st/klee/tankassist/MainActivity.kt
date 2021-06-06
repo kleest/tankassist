@@ -16,7 +16,9 @@ import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.result.registerForActivityResult
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.get
@@ -132,10 +134,17 @@ class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener {
         // app bar handlers
         val appBar = findViewById<MaterialToolbar>(R.id.app_bar)
         setSupportActionBar(appBar)
+
+        val settingsActivityLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
+                if (result.resultCode == SettingsActivity.RESULT_CHANGED_RADIUS)
+                    onRefresh()
+            }
+
         appBar.setOnMenuItemClickListener { item ->
             when (item.itemId) {
                 R.id.settings -> {
-                    startActivity(Intent(this, SettingsActivity::class.java))
+                    settingsActivityLauncher.launch(Intent(this, SettingsActivity::class.java))
                 }
                 R.id.about -> {
                     startActivity(Intent(this, AboutActivity::class.java))

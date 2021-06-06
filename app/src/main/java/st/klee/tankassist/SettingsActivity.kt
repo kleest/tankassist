@@ -9,10 +9,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
+import androidx.preference.SeekBarPreference
 import androidx.preference.SwitchPreferenceCompat
 import st.klee.tankassist.misc.Permissions
 
 class SettingsActivity : AppCompatActivity() {
+    companion object {
+        const val RESULT_CHANGED_RADIUS = RESULT_FIRST_USER
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,6 +67,12 @@ class SettingsActivity : AppCompatActivity() {
                     } else
                         true
                 } else
+                    true
+            }
+
+            preferenceManager.findPreference<SeekBarPreference>(getString(R.string.pref_searchRadius))!!
+                .onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _, _ ->
+                    requireActivity().setResult(RESULT_CHANGED_RADIUS)
                     true
             }
         }
