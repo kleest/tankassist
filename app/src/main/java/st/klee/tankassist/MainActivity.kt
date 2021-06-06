@@ -231,12 +231,12 @@ class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener {
     private fun sortByUserPref(stations: MutableList<Station>): List<Station> {
         when (sortKey) {
             SortKey.DISTANCE -> {
-                if (currentLoc != null)
-                    // if user has location features enabled, sort by the user's actual location
-                    stations.sortBy { it.latLong.distanceTo(currentLoc!!) }
-                else
-                    // otherwise sort by distance returned from API (i.e. distance from search term)
+                if (searchText.isNotBlank())
+                    // if user entered search term, sort by distance returned from API (i.e. distance from search term)
                     stations.sortBy { it.dist}
+                else
+                    // otherwise sort by the user's actual location
+                    stations.sortBy { it.latLong.distanceTo(currentLoc!!) }
             }
             SortKey.PRICE_DIESEL -> stations.sortBy { it.prices[FuelType.Diesel]!!.cost ?: Double.MAX_VALUE }
             SortKey.PRICE_E5 -> stations.sortBy { it.prices[FuelType.E5]!!.cost ?: Double.MAX_VALUE }
