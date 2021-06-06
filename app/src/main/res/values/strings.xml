@@ -55,8 +55,8 @@
     <string name="progress_location">Determining location…</string>
     <string name="item_sort_price_diesel">Diesel</string>
     <string name="item_sort_distance">Distance</string>
-    <string name="item_sort_price_e5">E5</string>
-    <string name="item_sort_price_e10">E10</string>
+    <string name="item_sort_price_e5">Super E5</string>
+    <string name="item_sort_price_e10">Super E10</string>
     <string name="item_sort">Sort</string>
     <string name="pref_searchRadius_title">Search radius in km</string>
     <string name="pref_searchRadius_summary">Only list stations within a radius of up to the specified kilometers</string>

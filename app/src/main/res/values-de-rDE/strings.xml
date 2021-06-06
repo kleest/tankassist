@@ -46,8 +46,8 @@
     <string name="progress_location">Ermittle Standort…</string>
     <string name="item_sort_price_diesel">Diesel</string>
     <string name="item_sort_distance">Entfernung</string>
-    <string name="item_sort_price_e5">E5</string>
-    <string name="item_sort_price_e10">E10</string>
+    <string name="item_sort_price_e5">Super E5</string>
+    <string name="item_sort_price_e10">Super E10</string>
     <string name="item_sort">Sortieren</string>
     <string name="pref_searchRadius_title">Suchradius in km</string>
     <string name="pref_searchRadius_summary">Suche nur nach Tankstellen innerhalb des angegebenen Kilometer-Radius</string>
