@@ -8,7 +8,6 @@ import android.content.pm.PackageManager
 import android.location.Location
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
@@ -47,6 +46,7 @@ import st.klee.tankassist.data.FuelType
 import st.klee.tankassist.data.LatLng
 import st.klee.tankassist.data.Station
 import st.klee.tankassist.intro.IntroActivity
+import st.klee.tankassist.misc.MyLog
 import st.klee.tankassist.misc.Permissions
 import st.klee.tankassist.service.GeocodingUtil
 import java.lang.Integer.max
@@ -261,7 +261,7 @@ class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener {
     }
 
     private fun cancelLocationRequest() {
-        Log.d("TANKASSIST", "Cancelling locating task")
+        MyLog.d("TANKASSIST", "Cancelling locating task")
         locationCancelTokenSource?.cancel()
     }
 
@@ -279,7 +279,7 @@ class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener {
             val locationLat = data.getQueryParameter("locationLat")
             val locationLng = data.getQueryParameter("locationLng")
 
-            Log.d("TANKASSIST", "query find: $desc, $locationName, $locationAddress, $locationLat, $locationLat, $locationLng")
+            MyLog.i("TANKASSIST", "query find: $desc, $locationName, $locationAddress, $locationLat, $locationLat, $locationLng")
 
             invokedByIntent = true
 
@@ -335,7 +335,7 @@ class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener {
     }
 
     private fun requestLocationUpdate(gotLocation: (l: Location) -> Unit, ignoreIfNotPermitted: Boolean = false) {
-        Log.d("TANKASSIST", "getCurrentLocation")
+        MyLog.d("TANKASSIST", "getCurrentLocation")
         if (ContextCompat.checkSelfPermission(
                 this,
                 Manifest.permission.ACCESS_FINE_LOCATION
@@ -353,7 +353,7 @@ class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener {
                             }
                             .show()
                     } else {
-                        Log.d("TANKASSIST", "Requesting current location")
+                        MyLog.d("TANKASSIST", "Requesting current location")
                         // request actual location
                         setProgressIndicator(true)
                         locationCancelTokenSource = CancellationTokenSource()
@@ -374,13 +374,13 @@ class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener {
                                 gotLocation(l)
                             }
                             if (location == null) {
-                                Log.i("TANKASSIST", "Acquiring fresh failed; using last location");
+                                MyLog.i("TANKASSIST", "Acquiring fresh failed; using last location");
                                 // try getting cached location if active lookup fails
                                 fusedLocationClient.lastLocation.addOnSuccessListener { lastLocation ->
                                     if (lastLocation != null)
                                         processLocation(lastLocation)
                                     else
-                                        Log.w(
+                                        MyLog.w(
                                             "TANKASSIST",
                                             "Acquiring fresh and last location failed with null"
                                         );
@@ -428,10 +428,10 @@ class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener {
             return
         }
 
-        Log.d("TANKASSIST", "requestStationList: $latLng")
+        MyLog.d("TANKASSIST", "requestStationList: $latLng")
 
         // request new list of nearby stations
-        Log.d("TANKASSIST", ApiEndpoint.list(latLng, this))
+        MyLog.v("TANKASSIST", ApiEndpoint.list(latLng, this))
         val req = JsonObjectRequest(Request.Method.GET, ApiEndpoint.list(latLng, this), null,
             { response ->
                 setProgressIndicator(false)
@@ -506,10 +506,10 @@ class MainActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener {
                 holder.location.text = stationAddress
 
                 val myLoc = this@MainActivity.currentLoc
-                Log.d("TANKASSIST", "myloc: $myLoc")
+                MyLog.v("TANKASSIST", "myloc: $myLoc")
                 if (myLoc != null) {
                     val distance = myLoc.distanceTo(station.latLong)
-                    Log.d("TANKASSIST", "Distance: $distance")
+                    MyLog.v("TANKASSIST", "Distance: $distance")
                     holder.distance.text = getString(R.string.distance, distance / 1000)
                 } else
                     holder.distance.text = ""

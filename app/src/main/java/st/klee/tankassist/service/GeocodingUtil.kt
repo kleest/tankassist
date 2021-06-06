@@ -2,11 +2,11 @@ package st.klee.tankassist.service
 
 import android.app.Application
 import android.location.Geocoder
-import android.util.Log
 import android.widget.Toast
 import st.klee.tankassist.MyApplication
 import st.klee.tankassist.R
 import st.klee.tankassist.data.LatLng
+import st.klee.tankassist.misc.MyLog
 import java.util.*
 
 object GeocodingUtil {
@@ -14,7 +14,7 @@ object GeocodingUtil {
     private val geocoder: Geocoder = Geocoder(MyApplication.instance, Locale.GERMANY)
 
     fun latLngForAddress(address: String) : LatLng? {
-        Log.d("GeocodingUtil", "LatLngForAddress: $address")
+        MyLog.d("GeocodingUtil", "LatLngForAddress: $address")
 
         // show error of Geocoder is not present
         if (!Geocoder.isPresent()) {
