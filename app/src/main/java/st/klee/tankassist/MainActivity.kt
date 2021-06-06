@@ -57,7 +57,10 @@ class MainActivity : AppCompatActivity() {
     protected var currentLoc: LatLng? = null
     private var invokedByIntent: Boolean = false
     private var firstRun: Boolean? = null
-    private var searchText: String = ""
+    private var searchText: String
+        get() = search!!.text.toString()
+        set(v) = search!!.setText(v)
+
 
     // location
     private var locationCancelTokenSource: CancellationTokenSource? = null
@@ -109,7 +112,6 @@ class MainActivity : AppCompatActivity() {
                 if (event != null && event.action != KeyEvent.ACTION_DOWN)
                     return@setOnEditorActionListener false
 
-                searchText = v.text.toString()
                 // get coordinates from text input
                 if (searchText.isNotBlank()) {
                     requestStationList(GeocodingUtil.latLngForAddress(searchText))
@@ -307,6 +309,9 @@ class MainActivity : AppCompatActivity() {
         }
 
     private fun requestStationListForCurrentLocation(ignoreIfNotPermitted: Boolean = false) {
+        // clear search view
+        searchText = ""
+
         // cancel any pending request to minimize device load
         cancelLocationRequest()
 
